@@ -1,0 +1,16 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: filenet-test-placement-1
+  namespace: filenet-test 
+  labels:
+    app: filenet-test
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions: []
+    matchLabels:
+      # Replace value with Cluster you wish to provision too.
+      name: cp4ba-aws 

@@ -1,0 +1,18 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: filenet-test-subscription
+  namespace: filenet-test 
+  labels:
+    app: filenet-test
+  annotations:
+      apps.open-cluster-management.io/git-branch: ${GIT_GITOPS_BRANCH} 
+      apps.open-cluster-management.io/git-path: cloudpaks/filenet-test/manifests/ 
+      apps.open-cluster-management.io/reconcile-option: replace
+spec:
+  channel: filenet-test/filenet-test-channel
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: filenet-test-placement-1
+#      apiGroup: apps.open-cluster-management.io
