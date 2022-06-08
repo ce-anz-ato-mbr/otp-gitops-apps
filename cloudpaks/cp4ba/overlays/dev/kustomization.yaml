@@ -13,5 +13,5 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - configmap.yaml
-  # - job.yaml
+  - job.yaml
   - crb.yaml
