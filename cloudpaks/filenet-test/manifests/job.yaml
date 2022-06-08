@@ -1,16 +1,16 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: apollo-one-shot-install-
-  namespace: apollo-one-shot
+  generateName: filenet-test-install-
+  namespace: filenet-test
 spec:
   template:
     metadata:
       labels:
-        app: apollo-one-shot  
+        app: filenet-test  
     spec:
       containers:
-        - name: apollo-one-shot
+        - name: filenet-test
           image: ubi9/ubi:9.0.0
           command: ["/bin/bash"]
           args:
@@ -32,5 +32,5 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: apollo-one-shot
+            name: filenet-test
   backoffLimit: 2
