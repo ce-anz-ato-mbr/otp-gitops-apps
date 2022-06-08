@@ -1,11 +1,11 @@
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: cluster-admin-apollo-one-shot
+  name: cluster-admin-filenet-test
 subjects:
   - kind: User
     apiGroup: rbac.authorization.k8s.io
-    name: "system:serviceaccount:apollo-one-shot:default"
+    name: "system:serviceaccount:filenet-test:default"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
