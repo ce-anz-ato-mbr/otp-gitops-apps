@@ -6,4 +6,5 @@ bases:
   - ../../base
 patchesStrategicMerge:
   - namespace.yaml
-  # - job.yaml
+  - configmap.yaml
+  - job.yaml

@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   generateName: apollo-one-shot-install-
-  namespace: apollo-one-shot
+  namespace: cp4ba-filenet
 spec:
   template:
     metadata:
@@ -14,17 +14,8 @@ spec:
           image: ubi9/ubi:9.0.0
           command: ["/bin/bash"]
           args:
-            ["-c","cd /usr; yum install git -y && git clone --branch ${GIT_BRANCH} ${GIT_REPOSITORY}; cd ./ibm-cp4ba-enterprise-deployment/scripts; chmod u+x apollo-one-shot.sh; ./apollo-one-shot.sh"]
+            ["-c","cd /tmp; echo installing_CB4BA_Filenet > test.txt"]
           imagePullPolicy: IfNotPresent
-          env:
-            - name: ACTION
-              value: install
-            - name: GIT_REPOSITORY
-              value: https://github.com/apollo-business-automation/ibm-cp4ba-enterprise-deployment.git
-            - name: GIT_BRANCH
-              value: main
-            - name: CONTAINER_RUN_MODE
-              value: "true"
           volumeMounts:
             - name: config
               mountPath: /config/
